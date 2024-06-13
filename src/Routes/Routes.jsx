@@ -20,6 +20,8 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistroey/PaymentHistory";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
+import Reservation from "../pages/Dashboard/Reservation/Reservation";
+import MyBookings from "../pages/Dashboard/MyBooking/MyBookings";
   
   
   const router = createBrowserRouter([
@@ -64,6 +66,14 @@ import UserHome from "../pages/Dashboard/UserHome/UserHome";
         {
           path: 'cart',
           element: <Cart></Cart>
+        },
+        {
+          path: 'reservation',
+          element: <Reservation></Reservation>
+        },
+        {
+          path: 'myBookings',
+          element: <MyBookings></MyBookings>
         },
         {
           path: 'payment',

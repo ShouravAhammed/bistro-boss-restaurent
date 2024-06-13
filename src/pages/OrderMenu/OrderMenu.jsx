@@ -8,7 +8,7 @@ import { useState } from "react";
 
 
 const OrderMenu = () => {
-    const [menu, loading] = useMenu();
+    const [menu] = useMenu();
     const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks']
     const {category} = useParams();
     const initialIndex = categories.indexOf(category)

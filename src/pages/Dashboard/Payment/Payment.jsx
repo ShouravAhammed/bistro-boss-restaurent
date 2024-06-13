@@ -3,18 +3,18 @@ import { loadStripe } from "@stripe/stripe-js";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckOutForm from "../../../components/CheckOutForm/CheckOutForm";
-import useCart from "../../../hooks/useCart";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
+import useBookings from "../../../hooks/useBookings";
 
 
 const Payment = () => {
     const {user} = useAuth();
-    const [cart] = useCart();
+    const [bookings] = useBookings();
     const axiosSecure = useAxiosSecure();
     // : added publishable key and .env file
         const stripePromise = loadStripe(`${import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}`)
-        const totalPrice = cart.reduce((total, item) => total + item.price, 0)
+        const totalPrice = bookings.reduce((total, item) => total + item.totalPrice, 0)
 
         const handlePayment = async() => {
             console.log("Payment Successfull")
@@ -24,8 +24,8 @@ const Payment = () => {
                 email: user?.email,
                 price: totalPrice,
                 date: new Date(),  // utc date convert. use moment js 
-                cartIds: cart.map(item => item._id),
-                menuItemIds: cart.map(item => item.menuId),
+                cartIds: bookings.map(item => item._id),
+                menuItemIds: bookings.map(item => item.menuId),
               }
 
             const res = await axiosSecure.post('/sslPayments', payment)

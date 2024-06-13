@@ -2,15 +2,25 @@
 import { FaHome, FaShoppingCart, FaUsers } from 'react-icons/fa';
 import { GiShoppingBag } from 'react-icons/gi';
 import { IoCalendarSharp } from 'react-icons/io5';
-import { MdBookmarkAdded, MdOutlineRestaurantMenu, MdPayments, MdRateReview } from 'react-icons/md';
+import { MdBookmarkAdded, MdMenuOpen, MdOutlineRestaurantMenu, MdPayments, MdRateReview } from 'react-icons/md';
 import { RiContactsBook3Fill, RiMenuSearchFill } from 'react-icons/ri';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import useCart from '../hooks/useCart';
 import useAdmin from '../hooks/useAdmin';
+import useBookings from '../hooks/useBookings';
+import { useState } from 'react';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 const Dashboard = () => {
 
     const [cart] = useCart();
+    const [bookings] = useBookings();
+
+    const [isActive, setActive] = useState(false)
+
+    const handleToggleSidebar = () => {
+        setActive(!isActive)
+    }
 
     // TODO: get Admin value from the database
     const [isAdmin] = useAdmin(); 
@@ -42,12 +52,6 @@ const Dashboard = () => {
             <span>All Users</span>
             </span>
             </NavLink></li>
-        <li className="font-medium text-base hover:text-white duration-300 uppercase"><NavLink to={'/dashboard/manageBookings'} className={({isActive}) => isActive ? 'text-white' : 'text-[151515]'}>
-            <span className='flex justify-start items-center gap-2'>
-            <MdBookmarkAdded className='text-2xl' />
-            <span>Manage Bookings</span>
-            </span>
-            </NavLink></li>
     </>
 
 
@@ -59,28 +63,23 @@ const Dashboard = () => {
             <span>User Home</span>
             </span>
             </NavLink></li>
-        <li className="font-medium text-base hover:text-white  duration-300 uppercase"><NavLink to={'/dashboard/reservation'} className={({isActive}) => isActive ? 'text-white' : 'text-[#151515]'}>
-        <span className='flex justify-start items-center gap-2'>
-        <IoCalendarSharp className='text-2xl' />
-            <span>Reservation</span>
-            </span>    
-        </NavLink></li>
         <li className="font-medium text-base hover:text-white duration-300 uppercase"><NavLink to={'/dashboard/cart'} className={({isActive}) => isActive ? 'text-white' : 'text-[151515]'}>
             <span className='flex justify-start items-center gap-2'>
             <FaShoppingCart className='text-2xl'></FaShoppingCart>
             <span>My Cart <span>({cart.length})</span></span>
             </span>
             </NavLink></li>
-        <li className="font-medium text-base hover:text-white  duration-300 uppercase"><NavLink to={'/dashboard/paymentHistory'} className={({isActive}) => isActive ? 'text-white' : 'text-[#151515]'}>
-        <span className='flex justify-start items-center gap-2'>
-            <MdPayments className='text-2xl' />
-            <span>Payment History</span>
-            </span>
-            </NavLink></li>
+        
         <li className="font-medium text-base hover:text-white duration-300 uppercase"><NavLink to={'/dashboard/myBookings'} className={({isActive}) => isActive ? 'text-white' : 'text-[#151515]'}>
         <span className='flex justify-start items-center gap-2'>
         <MdBookmarkAdded className='text-2xl' />
-            <span>My Booking</span>
+            <span>My Booking <span>({bookings.length})</span></span>
+            </span>
+            </NavLink></li>
+            <li className="font-medium text-base hover:text-white  duration-300 uppercase"><NavLink to={'/dashboard/paymentHistory'} className={({isActive}) => isActive ? 'text-white' : 'text-[#151515]'}>
+        <span className='flex justify-start items-center gap-2'>
+            <MdPayments className='text-2xl' />
+            <span>Payment History</span>
             </span>
             </NavLink></li>
         <li className="font-medium text-base hover:text-white  duration-300 uppercase"><NavLink to={'/dashboard/addReview'} className={({isActive}) => isActive ? 'text-white' : 'text-[#151515]'}>
@@ -122,7 +121,14 @@ const Dashboard = () => {
     return (
         <div className='flex'>
             {/* dashboard side bar */}
-            <div className='px-10 py-6 min-h-screen bg-[#D1A054]'>
+            <div className={`px-10 py-6 min-h-screen bg-[#D1A054] lg:flex lg:relative fixed z-20 ${isActive && '-translate-x-full'} lg:translate-x-0 duration-300 ease-in-out`}>
+                <button onClick={() => handleToggleSidebar(!isActive)} className='absolute top-3 -right-12 lg:hidden p-3 bg-[#D1A054]'>
+                {
+                    isActive ? <AiOutlineMenu className='text-2xl text-white'/> : <AiOutlineClose className='text-2xl text-white'/>
+
+                }
+                </button>
+            <div>
             <Link to={'/'} className="font-Cinzel font-black lg:text-2xl text-2xl uppercase flex flex-col items-center justify-center -space-y-2 mb-5"><span className="">Bistro Boss</span><h5 className="font-bold lg:text-2xl text-xl tracking-widest">Restaurant</h5>
             </Link>
                 <div>
@@ -144,6 +150,7 @@ const Dashboard = () => {
                     {interfaceSidebar}
                 </ul>
                 </div>
+            </div>
             </div>
             {/* dashboard content */}
             <div className='flex-1 container mx-auto px-4 bg-[#F3F3F3]'>

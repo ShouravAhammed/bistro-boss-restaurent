@@ -7,23 +7,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 // import required modules
 import { Autoplay, Navigation, } from 'swiper/modules';
-import { useEffect, useState } from 'react';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css'
+import useReview from '../../../hooks/useReview';
 
 
 const Testimonials = () => {
-
-    const [reviews, setReviews] = useState([]);
-
-    useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/reviews`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            setReviews(data)
-        })
-    }, [])
+    const [reviews] = useReview();
 
     return (
         <section className='space-y-8'>

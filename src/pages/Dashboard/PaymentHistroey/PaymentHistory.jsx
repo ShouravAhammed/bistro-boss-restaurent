@@ -18,14 +18,14 @@ const PaymentHistory = () => {
 
 
     return (
-        <section className="container mx-auto px-4 my-20">
+        <section className="my-10">
             <div>
                 <SectionTitle subHeading={"---Your payment history---"} heading={"Payment History"}></SectionTitle>
             </div>
 
-            <div className="bg-white p-10 m-10">
+            <div className="bg-white lg:p-10 md:p-5 lg:m-5 p-2 m-2">
                 <div className="flex justify-between items-center">
-                    <h3 className="text-2xl font-Cinzel text-[#151515] font-bold">Total Orders: {payments.length}</h3>
+                    <h3 className="md:text-2xl text-base font-Cinzel text-[#151515] font-bold">Total Orders: {payments.length}</h3>
                 </div>
                 <div className="overflow-x-auto">
   <table className="table mt-5 ">
@@ -35,9 +35,8 @@ const PaymentHistory = () => {
         <th></th>
         <th>Email</th>
         <th>Category</th>
-        <th>Total Price</th>
+        <th>Total Payments</th>
         <th>Payment Date</th>
-        <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -53,12 +52,9 @@ const PaymentHistory = () => {
         <td>
           {payment.transactionId}
         </td>
-        <td>{payment.price}</td>
+        <td>${payment.price}</td>
         <th>
           <p>{payment.date}</p>
-        </th>
-        <th>
-          <p>{payment.status}</p>
         </th>
         </tr>)
       }

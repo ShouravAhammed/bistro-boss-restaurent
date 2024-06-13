@@ -47,17 +47,17 @@ const Cart = () => {
                 <SectionTitle subHeading={'---My Cart---'} heading={'Wanna Add More?'}></SectionTitle>
             </div>
 
-            <div className="bg-white p-10 m-10">
+            <div className="bg-white md:p-10 p-2 md:m-10 m-2">
                 <div className="flex justify-between items-center">
-                    <h3 className="text-2xl font-Cinzel text-[#151515] font-bold">Total Orders: {cart.length}</h3>
-                    <h3 className="text-2xl font-Cinzel text-[#151515] font-bold">Total Price: ${totalPrice}</h3>
+                    <h3 className="md:text-2xl text-base font-Cinzel text-[#151515] font-bold">Total Orders: {cart.length}</h3>
+                    <h3 className="md:text-2xl text-base font-Cinzel text-[#151515] font-bold">Total Price: ${totalPrice}</h3>
                     {
                       cart.length ?
-                      <Link to={'/dashboard/payment'}>
-                    <button className="btn btn-primary">Pay</button>
+                      <Link to={'/dashboard/reservation'}>
+                    <button className="btn btn-primary">CheckOut</button>
                     </Link>
                     :
-                    <button disabled className="btn btn-primary">Pay</button>
+                    <button disabled className="btn btn-primary">CheckOut</button>
                     }
                 </div>
                 <div className="overflow-x-auto">
@@ -91,7 +91,7 @@ const Cart = () => {
         <td>
           {item.name}
         </td>
-        <td>{item.price}</td>
+        <td>${item.price}</td>
         <th>
           <button onClick={() => handleItemDelete(item._id)} className="p-3 rounded-lg text-white bg-red-600 text-xl hover:bg-red-800 duration-300"><ImBin /></button>
         </th>

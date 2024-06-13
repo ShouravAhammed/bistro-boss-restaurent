@@ -50,7 +50,7 @@ const Navbar = () => {
   <div className="navbar-end">
 
    {
-    user && !isAdmin ?  <Link to={'/dashboard/userHome'} className="mr-2">
+    user && !isAdmin ?  <Link to={'/dashboard/cart'} className="mr-2">
     <button className="text-[#ffffff] font-bold flex justify-center items-center">
       <span className="text-3xl"><AiOutlineShoppingCart /></span>
       <div className="text-sm -mt-2 text-[#EEFF25]">+{cart.length}</div>
