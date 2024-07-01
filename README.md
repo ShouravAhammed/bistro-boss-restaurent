@@ -5,16 +5,15 @@ How to Clone a GitHub Repository and Run it in VScode Step by Step:
 - Open a new terminal in VS Code.
 - Install dependencies: (npm install)
 3. Run the Project:
-- Follow project-specific instructions ( npm run dev ).
-- That's it! This should help you clone and run a GitHub repository in VS Code quickly.
+- Follow project instructions ( npm run dev ).
+- Clone and run quickly.
 
 # React + Vite
-Everything else is used to create a website at bistro boss restaurant:
+Website creation tools:
 - react-dom
 - react-router-dom
 - Firebase
 - react Helmet
-- 
 - react Ratings.js
 - react Stripe
 - react-tanstack
