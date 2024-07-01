@@ -4,7 +4,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 Currently, 1 official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 
-
+How to Clone a GitHub Repository and Run it in VScode Step by Step----------
 1. Open in VS Code:
 - Open the cloned folder in VS Code (File > Open Folder...).
 2. Install Dependencies (if any):
