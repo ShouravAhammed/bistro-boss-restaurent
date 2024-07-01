@@ -8,7 +8,7 @@ How to Clone a GitHub Repository and Run it in VScode Step by Step:
 - Follow project instructions ( npm run dev ).
 - Clone and run quickly.
 
-server site repo: 
+server site repo: https://github.com/ShouravAhammed/bistro-boss-server
 
 # React + Vite
 Website creation tools:
