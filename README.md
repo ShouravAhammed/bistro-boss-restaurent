@@ -4,7 +4,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 Currently, 1 official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 
-How to Clone a GitHub Repository and Run it in VScode Step by Step----------
+How to Clone a GitHub Repository and Run it in VScode Step by Step:
 1. Open in VS Code:
 - Open the cloned folder in VS Code (File > Open Folder...).
 2. Install Dependencies (if any):
@@ -15,7 +15,7 @@ How to Clone a GitHub Repository and Run it in VScode Step by Step----------
 - That's it! This should help you clone and run a GitHub repository in VS Code quickly.
 
 
-Everything else is used to create a website at bistro boss restaurant------------
+Everything else is used to create a website at bistro boss restaurant:
 - react-dom: Render React components to DOM.
 - react-router-dom: Handle routing in React applications efficiently.
 - Firebase: Develop backend services and manage databases easily.
