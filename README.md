@@ -1,12 +1,20 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules
+Currently, 1 official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
--
+
+
+1. Open in VS Code:
+- Open the cloned folder in VS Code (File > Open Folder...).
+2. Install Dependencies (if any):
+- Open a new terminal in VS Code.
+- Install dependencies: (npm install)
+3. Run the Project:
+Follow project-specific instructions (e.g., npm run dev).
+That's it! This should help you clone and run a GitHub repository in VS Code quickly.
+
+
 Everything else is used to create a website at bistro boss restaurant------------
 - react-dom: Render React components to DOM.
 - react-router-dom: Handle routing in React applications efficiently.
